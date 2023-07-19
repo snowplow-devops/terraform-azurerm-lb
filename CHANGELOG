@@ -1,3 +1,7 @@
+Version 0.1.1 (2023-07-21)
+--------------------------
+Update to Snowplow Community Licence (#3)
+
 Version 0.1.0 (2023-06-09)
 --------------------------
 Add base Application Gateway deployment with HTTP and HTTPS listeners (#2)
