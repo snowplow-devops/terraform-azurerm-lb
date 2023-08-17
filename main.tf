@@ -24,8 +24,8 @@ resource "azurerm_public_ip" "ip" {
   resource_group_name = var.resource_group_name
   location            = data.azurerm_resource_group.rg.location
 
-  allocation_method = "Dynamic"
-  sku               = "Basic"
+  allocation_method = "Static"
+  sku               = "Standard"
   sku_tier          = "Regional"
   ip_version        = "IPv4"
 
@@ -45,8 +45,8 @@ resource "azurerm_application_gateway" "agw" {
   tags = var.tags
 
   sku {
-    name     = "Standard_Small"
-    tier     = "Standard"
+    name     = "Standard_v2"
+    tier     = "Standard_v2"
     capacity = var.capacity
   }
 
@@ -145,6 +145,7 @@ resource "azurerm_application_gateway" "agw" {
     http_listener_name         = local.http_listener_name
     backend_address_pool_name  = local.backend_address_pool_name
     backend_http_settings_name = local.backend_http_settings_name
+    priority                   = 1
   }
 
   dynamic "request_routing_rule" {
@@ -156,6 +157,7 @@ resource "azurerm_application_gateway" "agw" {
       http_listener_name         = local.https_listener_name
       backend_address_pool_name  = local.backend_address_pool_name
       backend_http_settings_name = local.backend_http_settings_name
+      priority                   = 2
     }
   }
 }
