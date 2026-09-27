@@ -1,6 +1,7 @@
 Version 0.2.1 (2026-09-26)
 --------------------------
 Update GitHub Actions to Node 24 and pin to commit SHAs
+Pin azurerm to ~> 4.27.0
 
 Version 0.2.0 (2023-08-17)
 --------------------------
